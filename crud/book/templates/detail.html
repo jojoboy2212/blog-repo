@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detail</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    {% block content %}
+</head>
+<body>
+    <div class="book_det">
+        <h2>제목 : {{ post.title }}</h2>
+        <h5>내용 : {{ post.content}}</h5>
+        <div class="button_place">
+            <a href="{% url 'home' %}"><button class="btn btn-primary">책 리스트로 돌아가기</a>
+            <a href="{% url 'edit' post.pk %}"><button class="btn btn-success">수정하기</a>
+            <a href="{% url 'delete' post.pk %}"><button class="btn btn-danger">삭제</a>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
