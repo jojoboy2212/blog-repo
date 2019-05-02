@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
 <head>
     
     <meta charset="UTF-8">
@@ -15,12 +15,33 @@
 </head>
 <body>
     <div class="book_det">
-        <h2>제목 : {{ post.title }}</h2>
-        <h5>내용 : {{ post.content}}</h5>
-        <div class="button_place">
-            <a href="{% url 'home' %}"><button class="btn btn-primary">책 리스트로 돌아가기</a>
-            <a href="{% url 'edit' post.pk %}"><button class="btn btn-success">수정하기</a>
-            <a href="{% url 'delete' post.pk %}"><button class="btn btn-danger">삭제</a>
+        <div class="det_1">
+            <h2>제목 : {{ post.title }}</h2>
+            <h5>내용 : {{ post.content}}</h5>
+            <div class="button_place">
+                <a href="{% url 'home' %}"><button class="btn btn-primary">책 리스트로 돌아가기</a>
+                <a href="{% url 'edit' post.pk %}"><button class="btn btn-success">수정하기</a>
+                <a href="{% url 'delete' post.pk %}"><button class="btn btn-danger">삭제</a>
+            </div>
+            <div class="com_line">
+                <a class="com_tit">댓글</a>
+            </div>
+            <div class="book_comment">
+                <ul>
+                    {% for comment in post.comments.all %}
+                        &nbsp; <li>{{ comment.content }} &nbsp; <a href="{% url 'delete_comment' post.pk comment.pk %}"><button class="btn btn-danger">삭제하기<br></a></li><br>
+                    {% endfor %}
+                <ul>
+                <div class="comment_area">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="com_sub">
+                            <input type="submit" />
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     {% endblock %}

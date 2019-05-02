@@ -93,3 +93,33 @@ label {
     margin-left: 44%;
     margin-top: 5%;
 }
+.det_1 {
+    margin: 5%;
+}
+.book_comment {
+    margin-top: 5%;
+}
+
+.comment_area {
+    margin: 5%;
+    margin-left: -10%;
+    align-content: center;
+}
+
+.com_line {
+    border-top: 1px solid black;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.com_tit {
+    text-align: center;
+    font-size: 20px;
+    margin-left: 48%;
+}
+
+.com_sub {
+    margin-left: 50%;
+
+}
+
