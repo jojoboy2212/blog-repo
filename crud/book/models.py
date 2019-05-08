@@ -17,7 +17,7 @@ class Post(models.Model):
     )
     grade = models.CharField(max_length=1, choices=model_choice)
     
-    image = models.ImageField(upload_to='profile_image', blank=True)
+    img = models.ImageField(null=True)
  
 
     def __str__(self):

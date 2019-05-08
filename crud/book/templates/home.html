@@ -34,13 +34,16 @@
     {% for post in posts %}
         <div class='book_list'>
         
-            <div class="book_1">
+            {% comment %} <div class="book_1">
                 {% if post.image %}
-                    <img src = "{{post.image.url}}">
+                    
                 {% endif %}
-            </div>
+            </div> {% endcomment %}
             <div class="book_box">
                 <h2><a href="{% url 'detail' post.pk %}">{{ post.title }}</a></h2><br>
+                {% if post.img %}
+                    <img src = "{{post.img.url}}" />
+                {% endif %}
                 <p class="book_content">{{ post.content }}<br> 가격:{{post.price}}원 평점:{{post.grade}}/5</p>
                 <p><a href="{% url 'detail' post.pk %}" class="read-more-btn">내용보기</a></p>
             </div>
